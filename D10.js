@@ -169,6 +169,7 @@ let howManyDays = function (data) {
   return giorni;
 };
 console.log(howManyDays(new Date("August 28, 2024 00:00:00")));
+
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno,
    falso negli altri casi.
@@ -381,12 +382,22 @@ console.log("Totale somma di tutti gli anni dei film:", sumAllTheYears(movies));
  
 */
 let searchByTitle = function (stringa) {
+  let filmCercato = [];
+
   for (let i = 0; i < movies.length; i++) {
-    movies[i].Title = `${movies[i].Title} ${stringa}`;
+    if (movies[i].Title.includes(stringa)) {
+      filmCercato.push(movies[i]);
+    }
   }
+
+  if (filmCercato.length === 0) {
+    alert("Film non trovato");
+  }
+
+  return filmCercato;
 };
-searchByTitle("FILM");
-console.log(movies);
+
+console.log(searchByTitle("Avengers: Endgame"));
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro 
   e ritorna un oggetto contenente due array: "match" e "unmatch".
@@ -502,7 +513,7 @@ classe();
 
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro
-   e ritorna true se il numero fornito è un numero primo.
+  e ritorna true se il numero fornito è un numero primo.
 */
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
